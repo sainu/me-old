@@ -6,12 +6,13 @@ import { Skill } from "type/api/skill"
 import { SocialLink } from "type/api/socialLink"
 import path from 'path'
 import fs from 'fs'
-import * as md from 'lib/markdown'
 import { DEFAULT_PER_PAGE, getTotalPages, paging } from "lib/pagination"
 import { parseStringPromise } from 'xml2js'
 import { QiitaPost } from "type/api/qiitaPost"
 import { LifeEvent } from "type/api/lifeEvent"
 import { TimelineData } from "type/api/timeline"
+import markdownToHtml from "zenn-markdown-html"
+import matter from 'gray-matter'
 
 type IndexParams = {
   page?: number
@@ -112,9 +113,7 @@ export const fetchPosts = async(params?: IndexParams): Promise<IndexResponse<Pos
 
   const promises = fileNamesInPage.map(async (fileName) => {
     const filepath = path.join(process.cwd(), `./contents/posts/${fileName}`)
-    const slug = path.basename(filepath, path.extname(filepath))
-    const parseResult = await md.parseFile<PostMdMeta>(filepath)
-    return mapPost(slug, parseResult)
+    return mapPost(filepath)
   })
 
   return {
@@ -129,16 +128,19 @@ export const fetchPosts = async(params?: IndexParams): Promise<IndexResponse<Pos
 
 export const fetchPost = async(slug: string): Promise<Post> => {
   const filepath = path.join(process.cwd(), `./contents/posts/${slug}.md`)
-  const parseResult = await md.parseFile<PostMdMeta>(filepath)
-  return mapPost(slug, parseResult)
+  return mapPost(filepath)
 }
 
-const mapPost = (slug: string, data: md.MarkdownParseResult<PostMdMeta>): Post => {
+const mapPost = (filepath: string): Post => {
+  const slug = path.basename(filepath, path.extname(filepath))
+  const md = fs.readFileSync(filepath, 'utf8')
+  const { data, content } = matter(md)
+  const html = markdownToHtml(content)
   return {
     slug: slug,
-    title: data.meta.title,
-    publishedAt: data.meta.published_at,
-    content: data.content,
+    title: data.title,
+    publishedAt: data.published_at,
+    content: html,
   }
 }
 
