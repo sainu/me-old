@@ -1,5 +1,4 @@
 import 'styles/globals.scss'
-import 'highlight.js/styles/github-dark.css'
 import type { AppProps } from 'next/app'
 import { usePageView } from 'hooks/usePageView'
 import { useEffect } from 'react';
