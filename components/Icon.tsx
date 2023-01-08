@@ -1,9 +1,4 @@
 import { FC } from "react"
-import { GithubIcon } from "components/icons/GitHubIcon"
-import { TwitterIcon } from "components/icons/TwitterIcon"
-import { FacebookIcon } from "components/icons/FacebookIcon"
-import { WantedlyIcon } from "./icons/WantedlyIcon"
-import { QiitaIcon } from "./icons/QiitaIcon"
 import { EnvelopeIcon } from "./icons/EnvelopeIcon"
 import { HomeIcon } from "./icons/HomeIcon"
 import { BookIcon } from "./icons/BookIcon"
@@ -19,14 +14,9 @@ const icons = {
   'chevron-bar-right': ChevronBarRightIcon,
   'document': DocumentIcon,
   'envelope': EnvelopeIcon,
-  'facebook': FacebookIcon,
-  'github': GithubIcon,
   'home': HomeIcon,
   'lightning-charge': LightningChargeIcon,
   'person': PersonIcon,
-  'qiita': QiitaIcon,
-  'twitter': TwitterIcon,
-  'wantedly': WantedlyIcon,
 } as const
 const iconNames = Object.keys(icons) as Array<keyof typeof icons>
 type iconNames = (typeof iconNames)[number]

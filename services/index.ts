@@ -70,6 +70,7 @@ const mapSocialLink = (data: any): SocialLink => {
   return {
     name: data['name'],
     url: data['url'],
+    iconUrl: data['icon']['url']
   }
 }
 

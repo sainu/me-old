@@ -1,4 +1,5 @@
 export type SocialLink = {
-  name: "GitHub" | "Twitter" | "Facebook" | "Wantedly" | "Qiita",
+  name: string,
   url: string,
+  iconUrl: string,
 }
