@@ -38,6 +38,7 @@ class MyDocument extends Document<{ prefix: string | undefined }> {
           <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
           <meta property="og:locale" content="ja_JP" />
           <link rel="canonical" href={process.env.NEXT_PUBLIC_SITE_URL} />
+          <script async src="https://embed.zenn.studio/js/listen-embed-event.js" />
 
           {/* Global site tag (gtag.js) - Google Analytics */}
           {gtag.existsGaId ?

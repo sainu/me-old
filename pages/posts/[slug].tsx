@@ -10,6 +10,7 @@ import { GetStaticPaths, GetStaticProps, GetStaticPropsContext, NextPage } from 
 import { fetchPost, fetchPosts, fetchProfile } from "services"
 import { Post } from "type/api/post"
 import { Profile } from "type/api/profile"
+import 'zenn-content-css';
 
 type DiscussionEmbedConfig = ComponentProps<typeof DiscussionEmbed>['config']
 
@@ -85,15 +86,13 @@ const PostPage: NextPage<Props> = ({
           {post.title}
         </h1>
 
-        <div className='text-gray-400 text-sm font-bold'>
+        <div className='text-gray-400 text-sm font-bold mt-2 mb-4'>
           <time dateTime={formatISO(post.publishedAt)}>
             {formatPostPublishedTime(post.publishedAt)}
           </time>
         </div>
 
-        <div
-          className='bp'
-          dangerouslySetInnerHTML={{ __html: post.content }} />
+        <div className='znc' dangerouslySetInnerHTML={{ __html: post.content }} />
       </article>
 
       <DiscussionEmbed shortname="sainu-me" config={disqusConfig} />
