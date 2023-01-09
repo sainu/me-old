@@ -10,14 +10,19 @@
   display: inline-block;
   background: #f0f5f9;
   border: 1px solid #e6edf3;
-  padding: .04em .3em;
-  margin: 0 .2em;
+  padding: 0.04em 0.3em;
+  margin: 0 0.2em;
   border-radius: 3px;
   line-height: 1.4;
-  font-size: .85em;
+  font-size: 0.85em;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   // tailwindcss overrides font-weight to inherit but I want to use bold
   font-weight: bold;
 }

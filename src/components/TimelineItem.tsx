@@ -1,6 +1,6 @@
-import { FC } from "react"
-import { getDate, getMonth, getYear } from "@/shared/lib/date"
-import { TimelineData } from "@/type/api/timeline"
+import { FC } from 'react';
+import { getDate, getMonth, getYear } from '@/shared/lib/date';
+import { TimelineData } from '@/type/api/timeline';
 
 const yearBgColors = [
   'bg-yellow-400',
@@ -10,16 +10,14 @@ const yearBgColors = [
   'bg-indigo-400',
   'bg-purple-400',
   'bg-pink-400',
-]
+];
 
 function getTitle(d: TimelineData): React.ReactNode {
-  if (d.type === "lifeEvent") return d.data.title
+  if (d.type === 'lifeEvent') return d.data.title;
 
-  let labelName: string
-  if (d.data.employmentType === "正社員")
-    labelName = d.start ? '入社' : '退職'
-  else
-    labelName = d.start ? '開始' : '終了'
+  let labelName: string;
+  if (d.data.employmentType === '正社員') labelName = d.start ? '入社' : '退職';
+  else labelName = d.start ? '開始' : '終了';
   return (
     <>
       <span className='text-xs text-blue-700 border-b border-blue-700 border-dashed pb-0.5 mr-2'>
@@ -30,35 +28,31 @@ function getTitle(d: TimelineData): React.ReactNode {
         {d.data.employmentType}
       </span>
     </>
-  )
+  );
 }
 
 type Props = {
-  timelineData: TimelineData
-}
+  timelineData: TimelineData;
+};
 
-export const TimelineItem: FC<Props> = ({
-  timelineData
-}) => {
-  const year = getYear(timelineData.date)
-  const yearBgColor = yearBgColors[year % yearBgColors.length]
+export const TimelineItem: FC<Props> = ({ timelineData }) => {
+  const year = getYear(timelineData.date);
+  const yearBgColor = yearBgColors[year % yearBgColors.length];
 
   return (
     <div className='flex py-4'>
       <div className='flex flex-col w-18 shadow px-3 py-2 rounded'>
-        <div className={`text-xs ${yearBgColor} text-white rounded-full inline text-center w-12 mb-1.5`}>
+        <div
+          className={`text-xs ${yearBgColor} text-white rounded-full inline text-center w-12 mb-1.5`}
+        >
           {getYear(timelineData.date)}
         </div>
         <div className='flex justify-center font-bold leading-none'>
-          {getMonth(timelineData.date)}
-          .
-          {getDate(timelineData.date)}
+          {getMonth(timelineData.date)}.{getDate(timelineData.date)}
         </div>
       </div>
 
-      <div className='px-3 flex items-center'>
-        {getTitle(timelineData)}
-      </div>
+      <div className='px-3 flex items-center'>{getTitle(timelineData)}</div>
     </div>
-  )
-}
+  );
+};

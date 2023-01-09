@@ -1,4 +1,4 @@
 export type LifeEvent = {
-  title: string
-  date: string
-}
+  title: string;
+  date: string;
+};

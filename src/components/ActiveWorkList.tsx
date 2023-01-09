@@ -1,13 +1,7 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
-type Props = {}
+type Props = {};
 
-export const ActiveWorkList: FC<Props> = ({
-  children,
-}) => {
-  return (
-    <div className='flex flex-col gap-3'>
-      {children}
-    </div>
-  )
-}
+export const ActiveWorkList: FC<Props> = ({ children }) => {
+  return <div className='flex flex-col gap-3'>{children}</div>;
+};

@@ -1,20 +1,20 @@
-import { useRouter } from 'next/dist/client/router'
-import { useEffect } from 'react'
-import * as gtag from '@/shared/lib/gtag'
+import { useRouter } from 'next/dist/client/router';
+import { useEffect } from 'react';
+import * as gtag from '@/shared/lib/gtag';
 
 export const usePageView = () => {
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
-    if (!gtag.existsGaId) return
+    if (!gtag.existsGaId) return;
 
     const handleRouteChange = (path: string) => {
-      gtag.pageview(path)
-    }
+      gtag.pageview(path);
+    };
 
-    router.events.on('routeChangeComplete', handleRouteChange)
+    router.events.on('routeChangeComplete', handleRouteChange);
     return () => {
-      router.events.on('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
-}
+      router.events.on('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
+};

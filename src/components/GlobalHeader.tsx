@@ -1,21 +1,22 @@
-import { useRouter } from "next/dist/client/router"
-import { FC, useState } from "react"
-import { Profile } from "@/type/api/profile"
-import { GlobalNavigationLink } from "./GlobalNavigationLink"
-import { Icon } from "./Icon"
-import { ProfileImage } from "./ProfileImage"
+import { useRouter } from 'next/dist/client/router';
+import { FC, useState } from 'react';
+import { Profile } from '@/type/api/profile';
+import { GlobalNavigationLink } from './GlobalNavigationLink';
+import { Icon } from './Icon';
+import { ProfileImage } from './ProfileImage';
 
 type Props = {
-  profile: Profile
-}
+  profile: Profile;
+};
 
-const navClass = 'transition-all h-screen w-min max-w-xs' +
+const navClass =
+  'transition-all h-screen w-min max-w-xs' +
   ' fixed top-auto right-0 bottom-0 md:sticky md:top-0 md:right-auto md:bottom-auto' +
   ' p-2 md:px-4 md:py-8' +
-  ' inline-flex flex-col-reverse md:flex-col items-center md:items-start flex-end'
+  ' inline-flex flex-col-reverse md:flex-col items-center md:items-start flex-end';
 
-const iconProps = { width: 28, height: 28 }
-const filledIconProps = Object.assign({}, iconProps, { fill: true })
+const iconProps = { width: 28, height: 28 };
+const filledIconProps = Object.assign({}, iconProps, { fill: true });
 
 const navIcons = (pathname: string) => {
   return [
@@ -55,36 +56,33 @@ const navIcons = (pathname: string) => {
     >
       Activities
     </GlobalNavigationLink>,
-  ]
-}
+  ];
+};
 
 const Thumbnail: FC<{
-  url: string
-  onClick?: () => void
-}> = ({
-  url,
-  onClick,
-}) => {
+  url: string;
+  onClick?: () => void;
+}> = ({ url, onClick }) => {
   return (
     <div className='w-full text-center'>
       <div
-        className="inline-block cursor-pointer md:cursor-auto mb-0 md:mb-4 w-20 md:w-24 shadow md:shadow-none rounded-full bg-gray-100 p-2"
+        className='inline-block cursor-pointer md:cursor-auto mb-0 md:mb-4 w-20 md:w-24 shadow md:shadow-none rounded-full bg-gray-100 p-2'
         style={{ fontSize: '0px' }}
         onClick={() => onClick && onClick()}
       >
         <ProfileImage url={url} width={96} height={96} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export const GlobalHeader: FC<Props> = ({
-  profile,
-}) => {
-  const router = useRouter()
-  const [hideMenu, setHideMenu] = useState(true)
+export const GlobalHeader: FC<Props> = ({ profile }) => {
+  const router = useRouter();
+  const [hideMenu, setHideMenu] = useState(true);
 
-  const mobileLinkClass = hideMenu ? 'animate-nav-link-fade-out animation-forwards' : 'animate-nav-link-fade-in animation-forwards'
+  const mobileLinkClass = hideMenu
+    ? 'animate-nav-link-fade-out animation-forwards'
+    : 'animate-nav-link-fade-in animation-forwards';
 
   return (
     <header className='z-10'>
@@ -97,12 +95,17 @@ export const GlobalHeader: FC<Props> = ({
       </nav>
 
       <nav className={navClass + ' block md:hidden'}>
-        <Thumbnail url={profile.profileImageUrl} onClick={() => setHideMenu(!hideMenu)} />
+        <Thumbnail
+          url={profile.profileImageUrl}
+          onClick={() => setHideMenu(!hideMenu)}
+        />
 
         {navIcons(router.pathname).map((icon, i) => (
-          <div key={i} className={mobileLinkClass + ' mb-2'}>{icon}</div>
+          <div key={i} className={mobileLinkClass + ' mb-2'}>
+            {icon}
+          </div>
         ))}
       </nav>
     </header>
-  )
-}
+  );
+};

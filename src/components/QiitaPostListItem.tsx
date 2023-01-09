@@ -1,15 +1,13 @@
-import Link from 'next/link'
-import { FC } from 'react'
-import { formatISO, formatQiitaPostTime } from '@/shared/lib/date'
-import { QiitaPost } from '@/type/api/qiitaPost'
+import Link from 'next/link';
+import { FC } from 'react';
+import { formatISO, formatQiitaPostTime } from '@/shared/lib/date';
+import { QiitaPost } from '@/type/api/qiitaPost';
 
 type Props = {
-  qiitaPost: QiitaPost
-}
+  qiitaPost: QiitaPost;
+};
 
-export const QiitaPostListItem: FC<Props> = ({
-  qiitaPost,
-}) => {
+export const QiitaPostListItem: FC<Props> = ({ qiitaPost }) => {
   return (
     <div className='py-4 border-b'>
       <div className='flex gap-2 text-gray-500 text-sm'>
@@ -36,5 +34,5 @@ export const QiitaPostListItem: FC<Props> = ({
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};

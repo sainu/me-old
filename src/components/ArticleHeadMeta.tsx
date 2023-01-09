@@ -1,14 +1,14 @@
-import Head from 'next/head'
-import { FC } from "react"
-import { formatMetaPublishedTime } from "@/shared/lib/date"
-import { KEY_OG_TYPE } from "@/shared/lib/key"
+import Head from 'next/head';
+import { FC } from 'react';
+import { formatMetaPublishedTime } from '@/shared/lib/date';
+import { KEY_OG_TYPE } from '@/shared/lib/key';
 
 type Props = {
-  publishedTime?: Date
-  expirationTime?: Date
-  section?: string
-  tag?: string[]
-}
+  publishedTime?: Date;
+  expirationTime?: Date;
+  section?: string;
+  tag?: string[];
+};
 
 export const ArticleHeadMeta: FC<Props> = ({
   publishedTime,
@@ -18,22 +18,31 @@ export const ArticleHeadMeta: FC<Props> = ({
 }) => {
   return (
     <Head>
-      <meta property="og:type" content="article" key={KEY_OG_TYPE} />
-      {publishedTime ?
-        <meta property="article:published_time" content={formatMetaPublishedTime(publishedTime)} />
-      : undefined}
-      {expirationTime ?
-        <meta property="article:expiration_time" content={formatMetaPublishedTime(expirationTime)} />
-      : undefined}
-      <meta property="article:author" content={`${process.env.NEXT_PUBLIC_SITE_URL}/about`} />
-      {section ?
-        <meta property="article:section" content={section} />
-      : undefined}
-      {tag && tag.length > 0 ?
-        tag.map(tag => (
-          <meta property="article:tag" content={tag} key={tag} />
-        ))
-      : undefined}
+      <meta property='og:type' content='article' key={KEY_OG_TYPE} />
+      {publishedTime ? (
+        <meta
+          property='article:published_time'
+          content={formatMetaPublishedTime(publishedTime)}
+        />
+      ) : undefined}
+      {expirationTime ? (
+        <meta
+          property='article:expiration_time'
+          content={formatMetaPublishedTime(expirationTime)}
+        />
+      ) : undefined}
+      <meta
+        property='article:author'
+        content={`${process.env.NEXT_PUBLIC_SITE_URL}/about`}
+      />
+      {section ? (
+        <meta property='article:section' content={section} />
+      ) : undefined}
+      {tag && tag.length > 0
+        ? tag.map((tag) => (
+            <meta property='article:tag' content={tag} key={tag} />
+          ))
+        : undefined}
     </Head>
-  )
-}
+  );
+};

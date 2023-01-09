@@ -1,4 +1,4 @@
 export type Skill = {
-  name: string,
-  score: number,
-}
+  name: string;
+  score: number;
+};

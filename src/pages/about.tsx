@@ -1,44 +1,39 @@
-import type { InferGetStaticPropsType, NextPage } from 'next'
-import { CommonHeadMeta } from '@/components/CommonHeadMeta'
-import { DefaultLayout } from '@/components/DefaultLayout'
-import { EmailWithLink } from '@/components/EmailWithLink'
-import { ExperienceList } from '@/components/ExperienceList'
-import { ExperienceListItem } from '@/components/ExperienceListItem'
-import { PageTitle } from '@/components/PageTitle'
-import { ProfileHeadMeta } from '@/components/ProfileHeadMeta'
-import { ProfileImage } from '@/components/ProfileImage'
-import { Section } from '@/components/Section'
-import { SectionTitle } from '@/components/SectionTitle'
-import { SkillBarList } from '@/components/SkillBarList'
-import { SkillBarListItem } from '@/components/SkillBarListItem'
-import { SocialIconLink } from '@/components/SocialIconLink'
-import { SocialIconLinkList } from '@/components/SocialIconLinkList'
-import { Timeline } from '@/components/Timeline'
-import { TimelineItem } from '@/components/TimelineItem'
+import type { InferGetStaticPropsType, NextPage } from 'next';
+import { CommonHeadMeta } from '@/components/CommonHeadMeta';
+import { DefaultLayout } from '@/components/DefaultLayout';
+import { EmailWithLink } from '@/components/EmailWithLink';
+import { ExperienceList } from '@/components/ExperienceList';
+import { ExperienceListItem } from '@/components/ExperienceListItem';
+import { PageTitle } from '@/components/PageTitle';
+import { ProfileHeadMeta } from '@/components/ProfileHeadMeta';
+import { ProfileImage } from '@/components/ProfileImage';
+import { Section } from '@/components/Section';
+import { SectionTitle } from '@/components/SectionTitle';
+import { SkillBarList } from '@/components/SkillBarList';
+import { SkillBarListItem } from '@/components/SkillBarListItem';
+import { SocialIconLink } from '@/components/SocialIconLink';
+import { SocialIconLinkList } from '@/components/SocialIconLinkList';
+import { Timeline } from '@/components/Timeline';
+import { TimelineItem } from '@/components/TimelineItem';
 import {
   fetchExperiences,
   fetchProfile,
   fetchSkills,
   fetchSocialLinks,
   fetchTimeline,
-} from '@/services'
+} from '@/services';
 
-type Props = InferGetStaticPropsType<typeof getStaticProps>
+type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 export const getStaticProps = async () => {
-  const [
-    profile,
-    socialLinks,
-    skills,
-    experiences,
-    timeline,
-  ] = await Promise.all([
-    fetchProfile(),
-    fetchSocialLinks(),
-    fetchSkills({ orders: '-score' }),
-    fetchExperiences({ orders: '-startDate' }),
-    fetchTimeline(),
-  ])
+  const [profile, socialLinks, skills, experiences, timeline] =
+    await Promise.all([
+      fetchProfile(),
+      fetchSocialLinks(),
+      fetchSkills({ orders: '-score' }),
+      fetchExperiences({ orders: '-startDate' }),
+      fetchTimeline(),
+    ]);
 
   return {
     props: {
@@ -47,11 +42,11 @@ export const getStaticProps = async () => {
       skills,
       experiences,
       timeline,
-    }
-  }
-}
+    },
+  };
+};
 
-const title = 'About'
+const title = 'About';
 
 const AboutPage: NextPage<Props> = ({
   profile,
@@ -73,21 +68,27 @@ const AboutPage: NextPage<Props> = ({
 
       <Section>
         <section>
-          <div className="flex flex-col sm:flex-row mt-12 gap-6">
-            <div className="shrink-0">
-              <div className="flex sm:items-start">
-                <ProfileImage url={profile.profileImageUrl} width={100} height={100} />
+          <div className='flex flex-col sm:flex-row mt-12 gap-6'>
+            <div className='shrink-0'>
+              <div className='flex sm:items-start'>
+                <ProfileImage
+                  url={profile.profileImageUrl}
+                  width={100}
+                  height={100}
+                />
               </div>
             </div>
 
-            <div className="flex flex-col gap-6">
+            <div className='flex flex-col gap-6'>
               <div>
-                <div className="text-gray-400">{profile.job}</div>
-                <div className="text-xl font-bold">{profile.givenNameEn} {profile.familyNameEn}</div>
+                <div className='text-gray-400'>{profile.job}</div>
+                <div className='text-xl font-bold'>
+                  {profile.givenNameEn} {profile.familyNameEn}
+                </div>
                 <div>{profile.bio}</div>
               </div>
 
-              <div className="flex gap-3 flex-col flex-wrap sm:flex-row-reverse sm:justify-end">
+              <div className='flex gap-3 flex-col flex-wrap sm:flex-row-reverse sm:justify-end'>
                 <EmailWithLink email={profile.email} />
 
                 <SocialIconLinkList>
@@ -122,7 +123,7 @@ const AboutPage: NextPage<Props> = ({
           </SectionTitle>
 
           <SkillBarList>
-            {skills.map(skill => (
+            {skills.map((skill) => (
               <SkillBarListItem key={skill.name} skill={skill} />
             ))}
           </SkillBarList>
@@ -143,7 +144,7 @@ const AboutPage: NextPage<Props> = ({
         </section>
       </Section>
     </DefaultLayout>
-  )
-}
+  );
+};
 
-export default AboutPage
+export default AboutPage;

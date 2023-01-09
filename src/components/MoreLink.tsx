@@ -1,15 +1,12 @@
-import Link from 'next/link'
-import { FC } from 'react'
+import Link from 'next/link';
+import { FC } from 'react';
 
 type Props = {
-  href: string
-}
+  href: string;
+};
 
-export const MoreLink: FC<Props> = ({
-  href,
-  children,
-}) => {
-  const target = href.startsWith('http') ? '_blank' : '_self'
+export const MoreLink: FC<Props> = ({ href, children }) => {
+  const target = href.startsWith('http') ? '_blank' : '_self';
 
   return (
     <Link href={href}>
@@ -17,5 +14,5 @@ export const MoreLink: FC<Props> = ({
         {children}
       </a>
     </Link>
-  )
-}
+  );
+};
