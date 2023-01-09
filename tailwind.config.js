@@ -41,6 +41,9 @@ module.exports = {
           },
         },
       },
+      maxWidth: {
+        'main-content': '760px',
+      },
     },
   },
   plugins: [],

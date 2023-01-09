@@ -12,7 +12,7 @@ export const DefaultLayout: FC<Props> = ({ profile, children }) => {
     <div className='flex flex-row justify-start sm:justify-center transition-all mx-auto max-w-5xl w-full'>
       <GlobalHeader profile={profile} />
 
-      <main className='my-0 pt-8 px-4'>
+      <main className='my-0 pt-8 px-4 max-w-main-content'>
         {children}
 
         <Footer copyRight={`${profile.givenNameEn} ${profile.familyNameEn}`} />
