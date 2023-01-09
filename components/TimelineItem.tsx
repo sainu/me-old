@@ -1,4 +1,4 @@
-import { getDate, getMonth, getYear } from "lib/date"
+import { getDate, getMonth, getYear } from "shared/lib/date"
 import { FC } from "react"
 import { TimelineData } from "type/api/timeline"
 

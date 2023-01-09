@@ -1,4 +1,4 @@
-import { formatISO, formatPostPublishedTime } from "lib/date"
+import { formatISO, formatPostPublishedTime } from "shared/lib/date"
 import { FC } from "react"
 import { Post } from "type/api/post"
 import Link from 'next/link'

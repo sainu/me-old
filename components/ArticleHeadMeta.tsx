@@ -1,7 +1,7 @@
 import { FC } from "react"
 import Head from 'next/head'
-import { KEY_OG_TYPE } from "lib/key"
-import { formatMetaPublishedTime } from "lib/date"
+import { KEY_OG_TYPE } from "shared/lib/key"
+import { formatMetaPublishedTime } from "shared/lib/date"
 
 type Props = {
   publishedTime?: Date

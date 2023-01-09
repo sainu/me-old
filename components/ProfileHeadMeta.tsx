@@ -1,4 +1,4 @@
-import { KEY_OG_TYPE } from "lib/key"
+import { KEY_OG_TYPE } from "shared/lib/key"
 import { FC } from "react"
 import Head from 'next/head'
 

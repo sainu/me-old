@@ -1,4 +1,4 @@
-import { formatExperienceDate } from "lib/date";
+import { formatExperienceDate } from "shared/lib/date";
 import { FC } from "react";
 import { Experience } from "type/api/experience";
 

@@ -1,4 +1,4 @@
-import { formatISO, formatQiitaPostTime } from 'lib/date'
+import { formatISO, formatQiitaPostTime } from 'shared/lib/date'
 import { FC } from 'react'
 import { QiitaPost } from 'type/api/qiitaPost'
 import Link from 'next/link'

@@ -1,4 +1,4 @@
-import { profileApiClient, qiitaClient } from "lib/httpClient"
+import { profileApiClient, qiitaClient } from "shared/lib/httpClient"
 import { Experience, Project, Technology } from "type/api/experience"
 import { Post, PostMdMeta } from "type/api/post"
 import { Profile } from "type/api/profile"
@@ -6,7 +6,7 @@ import { Skill } from "type/api/skill"
 import { SocialLink } from "type/api/socialLink"
 import path from 'path'
 import fs from 'fs'
-import { DEFAULT_PER_PAGE, getTotalPages, paging } from "lib/pagination"
+import { DEFAULT_PER_PAGE, getTotalPages, paging } from "shared/lib/pagination"
 import { parseStringPromise } from 'xml2js'
 import { QiitaPost } from "type/api/qiitaPost"
 import { LifeEvent } from "type/api/lifeEvent"
