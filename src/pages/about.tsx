@@ -1,4 +1,20 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
+import { CommonHeadMeta } from '@/components/CommonHeadMeta'
+import { DefaultLayout } from '@/components/DefaultLayout'
+import { EmailWithLink } from '@/components/EmailWithLink'
+import { ExperienceList } from '@/components/ExperienceList'
+import { ExperienceListItem } from '@/components/ExperienceListItem'
+import { PageTitle } from '@/components/PageTitle'
+import { ProfileHeadMeta } from '@/components/ProfileHeadMeta'
+import { ProfileImage } from '@/components/ProfileImage'
+import { Section } from '@/components/Section'
+import { SectionTitle } from '@/components/SectionTitle'
+import { SkillBarList } from '@/components/SkillBarList'
+import { SkillBarListItem } from '@/components/SkillBarListItem'
+import { SocialIconLink } from '@/components/SocialIconLink'
+import { SocialIconLinkList } from '@/components/SocialIconLinkList'
+import { Timeline } from '@/components/Timeline'
+import { TimelineItem } from '@/components/TimelineItem'
 import {
   fetchExperiences,
   fetchProfile,
@@ -6,22 +22,6 @@ import {
   fetchSocialLinks,
   fetchTimeline,
 } from '@/services'
-import { CommonHeadMeta } from '@/components/CommonHeadMeta'
-import { ProfileHeadMeta } from '@/components/ProfileHeadMeta'
-import { DefaultLayout } from '@/components/DefaultLayout'
-import { PageTitle } from '@/components/PageTitle'
-import { SocialIconLink } from '@/components/SocialIconLink'
-import { SocialIconLinkList } from '@/components/SocialIconLinkList'
-import { EmailWithLink } from '@/components/EmailWithLink'
-import { ProfileImage } from '@/components/ProfileImage'
-import { Section } from '@/components/Section'
-import { SectionTitle } from '@/components/SectionTitle'
-import { SkillBarList } from '@/components/SkillBarList'
-import { SkillBarListItem } from '@/components/SkillBarListItem'
-import { ExperienceList } from '@/components/ExperienceList'
-import { ExperienceListItem } from '@/components/ExperienceListItem'
-import { Timeline } from '@/components/Timeline'
-import { TimelineItem } from '@/components/TimelineItem'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 

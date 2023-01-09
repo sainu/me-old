@@ -1,12 +1,12 @@
 import { FC } from "react"
-import { EnvelopeIcon } from "./icons/EnvelopeIcon"
-import { HomeIcon } from "./icons/HomeIcon"
 import { BookIcon } from "./icons/BookIcon"
-import { LightningChargeIcon } from "./icons/LightningChargeIcon"
-import { PersonIcon } from "./icons/PersonIcon"
-import { DocumentIcon } from "./icons/DocumentIcon"
 import { ChevronBarLeftIcon } from "./icons/ChevronBarLeft"
 import { ChevronBarRightIcon } from "./icons/ChevronBarRight"
+import { DocumentIcon } from "./icons/DocumentIcon"
+import { EnvelopeIcon } from "./icons/EnvelopeIcon"
+import { HomeIcon } from "./icons/HomeIcon"
+import { LightningChargeIcon } from "./icons/LightningChargeIcon"
+import { PersonIcon } from "./icons/PersonIcon"
 
 const icons = {
   'book': BookIcon,

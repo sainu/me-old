@@ -1,5 +1,5 @@
-import { FC, useEffect } from "react"
 import Link from 'next/link'
+import { FC, useEffect } from "react"
 
 export const EmbededTwitterTimeline: FC = () => {
   useEffect(() => {

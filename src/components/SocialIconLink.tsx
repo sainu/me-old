@@ -1,7 +1,7 @@
-import { FC } from "react"
-import Link from 'next/link'
-import { SocialLink } from "@/type/api/socialLink"
 import Image from "next/image"
+import Link from 'next/link'
+import { FC } from "react"
+import { SocialLink } from "@/type/api/socialLink"
 
 type Props = {
   socialLink: SocialLink

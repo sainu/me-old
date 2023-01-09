@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
 import { useRouter } from 'next/dist/client/router'
+import { useEffect } from 'react'
 import * as gtag from '@/shared/lib/gtag'
 
 export const usePageView = () => {

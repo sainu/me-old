@@ -1,7 +1,7 @@
 import '@/styles/globals.scss'
 import type { AppProps } from 'next/app'
-import { usePageView } from '@/shared/hooks/usePageView'
 import { useEffect } from 'react';
+import { usePageView } from '@/shared/hooks/usePageView'
 
 function MyApp({ Component, pageProps }: AppProps) {
   usePageView()

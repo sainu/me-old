@@ -1,5 +1,5 @@
-import * as gtag from '@/shared/lib/gtag'
 import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document'
+import * as gtag from '@/shared/lib/gtag'
 
 class MyDocument extends Document<{ prefix: string | undefined }> {
   static async getInitialProps(ctx: DocumentContext) {

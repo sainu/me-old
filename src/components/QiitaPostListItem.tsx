@@ -1,7 +1,7 @@
-import { formatISO, formatQiitaPostTime } from '@/shared/lib/date'
-import { FC } from 'react'
-import { QiitaPost } from '@/type/api/qiitaPost'
 import Link from 'next/link'
+import { FC } from 'react'
+import { formatISO, formatQiitaPostTime } from '@/shared/lib/date'
+import { QiitaPost } from '@/type/api/qiitaPost'
 
 type Props = {
   qiitaPost: QiitaPost

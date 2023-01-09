@@ -1,6 +1,6 @@
 import { useRouter } from "next/dist/client/router"
-import { FC } from "react"
 import Link from 'next/link'
+import { FC } from "react"
 import { getPagingRange, getTotalPages } from "@/shared/lib/pagination"
 import { Icon } from "./Icon"
 

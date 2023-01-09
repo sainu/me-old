@@ -1,5 +1,5 @@
-import { IconProps } from "@/components/Icon"
 import { FC } from "react"
+import { IconProps } from "@/components/Icon"
 
 export const HomeIcon: FC<IconProps> = ({
   width = 24,

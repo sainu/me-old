@@ -1,13 +1,13 @@
-import { ArticleHeadMeta } from "@/components/ArticleHeadMeta"
-import { DefaultLayout } from "@/components/DefaultLayout"
-import { CommonHeadMeta } from "@/components/CommonHeadMeta"
-import { PageTitle } from "@/components/PageTitle"
 import { GetStaticPropsContext, InferGetStaticPropsType, NextPage } from "next"
 import React from "react"
-import { fetchPosts, fetchProfile } from "@/services"
+import { ArticleHeadMeta } from "@/components/ArticleHeadMeta"
+import { CommonHeadMeta } from "@/components/CommonHeadMeta"
+import { DefaultLayout } from "@/components/DefaultLayout"
+import { PageTitle } from "@/components/PageTitle"
+import { Pagination } from "@/components/Pagination"
 import { PostList } from "@/components/PostList"
 import { PostListItem } from "@/components/PostListItem"
-import { Pagination } from "@/components/Pagination"
+import { fetchPosts, fetchProfile } from "@/services"
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 

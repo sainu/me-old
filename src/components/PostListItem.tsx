@@ -1,7 +1,7 @@
-import { formatISO, formatPostPublishedTime } from "@/shared/lib/date"
-import { FC } from "react"
-import { Post } from "@/type/api/post"
 import Link from 'next/link'
+import { FC } from "react"
+import { formatISO, formatPostPublishedTime } from "@/shared/lib/date"
+import { Post } from "@/type/api/post"
 
 type Props = {
   post: Post

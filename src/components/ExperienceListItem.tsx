@@ -1,5 +1,5 @@
-import { formatExperienceDate } from "@/shared/lib/date";
 import { FC } from "react";
+import { formatExperienceDate } from "@/shared/lib/date";
 import { Experience } from "@/type/api/experience";
 
 type Props = {

@@ -1,5 +1,5 @@
-import { getDate, getMonth, getYear } from "@/shared/lib/date"
 import { FC } from "react"
+import { getDate, getMonth, getYear } from "@/shared/lib/date"
 import { TimelineData } from "@/type/api/timeline"
 
 const yearBgColors = [

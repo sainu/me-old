@@ -1,16 +1,16 @@
+import { InferGetStaticPropsType } from "next"
+import { FC } from "react"
 import { ArticleHeadMeta } from "@/components/ArticleHeadMeta"
 import { CommonHeadMeta } from "@/components/CommonHeadMeta"
 import { DefaultLayout } from "@/components/DefaultLayout"
-import { PageTitle } from "@/components/PageTitle"
-import { Section } from "@/components/Section"
-import { SectionTitle } from "@/components/SectionTitle"
-import { InferGetStaticPropsType } from "next"
-import { FC } from "react"
-import { fetchProfile, fetchQiitaPosts } from "@/services"
 import { EmbededTwitterTimeline } from "@/components/EmbededTwitterTimeline"
+import { MoreLink } from "@/components/MoreLink"
+import { PageTitle } from "@/components/PageTitle"
 import { QiitaPostList } from "@/components/QiitaPostList"
 import { QiitaPostListItem } from "@/components/QiitaPostListItem"
-import { MoreLink } from "@/components/MoreLink"
+import { Section } from "@/components/Section"
+import { SectionTitle } from "@/components/SectionTitle"
+import { fetchProfile, fetchQiitaPosts } from "@/services"
 
 export const getStaticProps = async() => {
   const [
