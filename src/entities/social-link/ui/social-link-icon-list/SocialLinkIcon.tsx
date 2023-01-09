@@ -7,7 +7,7 @@ type Props = {
   socialLink: SocialLink;
 };
 
-export const SocialIconLink: FC<Props> = ({ socialLink }) => {
+export const SocialLinkIcon: FC<Props> = ({ socialLink }) => {
   return (
     <Link
       href={socialLink.url}

@@ -11,10 +11,9 @@ import { Section } from '@/components/Section';
 import { SectionTitle } from '@/components/SectionTitle';
 import { SkillBarList } from '@/components/SkillBarList';
 import { SkillBarListItem } from '@/components/SkillBarListItem';
-import { SocialIconLink } from '@/components/SocialIconLink';
-import { SocialIconLinkList } from '@/components/SocialIconLinkList';
 import { Timeline } from '@/components/Timeline';
 import { TimelineItem } from '@/components/TimelineItem';
+import { SocialLinkIconList } from '@/entities/social-link/ui';
 import {
   fetchExperiences,
   fetchProfile,
@@ -91,11 +90,7 @@ const AboutPage: NextPage<Props> = ({
               <div className='flex gap-3 flex-col flex-wrap sm:flex-row-reverse sm:justify-end'>
                 <EmailWithLink email={profile.email} />
 
-                <SocialIconLinkList>
-                  {socialLinks.map((socialLink, i) => (
-                    <SocialIconLink key={i} socialLink={socialLink} />
-                  ))}
-                </SocialIconLinkList>
+                <SocialLinkIconList socialLinks={socialLinks} />
               </div>
             </div>
           </div>
