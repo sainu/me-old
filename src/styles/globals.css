@@ -23,6 +23,6 @@ h3,
 h4,
 h5,
 h6 {
-  // tailwindcss overrides font-weight to inherit but I want to use bold
+  /* tailwindcss overrides font-weight to inherit but I want to use bold */
   font-weight: bold;
 }
