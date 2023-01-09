@@ -27,10 +27,12 @@ export const QiitaPostListItem: FC<Props> = ({ qiitaPost }) => {
       </div>
 
       <div>
-        <Link href={qiitaPost.url}>
-          <a target='_blank' className='font-bold text-lg hover:underline'>
-            {qiitaPost.title}
-          </a>
+        <Link
+          href={qiitaPost.url}
+          target='_blank'
+          className='font-bold text-lg hover:underline'
+        >
+          {qiitaPost.title}
         </Link>
       </div>
     </div>

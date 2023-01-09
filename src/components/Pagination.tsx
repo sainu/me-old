@@ -30,24 +30,29 @@ export const Pagination: FC<Props> = ({ totalCount, perPage, current }) => {
       <ul className='flex gap-3'>
         {range[0] === MinPage ? undefined : (
           <li className='flex items-center'>
-            <Link href={{ pathname, query: { ...query, page: pages[0] } }}>
-              <a className={itemClasses}>
-                <Icon name='chevron-bar-left' width={IconSize} />
-              </a>
+            <Link
+              href={{ pathname, query: { ...query, page: pages[0] } }}
+              className={itemClasses}
+              passHref
+            >
+              <Icon name='chevron-bar-left' width={IconSize} />
             </Link>
           </li>
         )}
         {range.map((page) => (
           <li key={page}>
-            <Link href={{ pathname, query: { ...query, page } }}>
-              {page === current ? (
-                <span className={`bg-gray-900 text-white ${itemClasses}`}>
-                  {page}
-                </span>
-              ) : (
-                <a className={`bg-gray-200 ${itemClasses}`}>{page}</a>
-              )}
-            </Link>
+            {page === current ? (
+              <span className={`bg-gray-900 text-white ${itemClasses}`}>
+                {page}
+              </span>
+            ) : (
+              <Link
+                href={{ pathname, query: { ...query, page } }}
+                className={`bg-gray-200 ${itemClasses}`}
+              >
+                {page}
+              </Link>
+            )}
           </li>
         ))}
         {range[range.length - 1] === pages[pages.length - 1] ? undefined : (
@@ -57,10 +62,10 @@ export const Pagination: FC<Props> = ({ totalCount, perPage, current }) => {
                 pathname,
                 query: { ...query, page: pages[pages.length - 1] },
               }}
+              className={itemClasses}
+              passHref
             >
-              <a className={itemClasses}>
-                <Icon name='chevron-bar-right' width={IconSize} />
-              </a>
+              <Icon name='chevron-bar-right' width={IconSize} />
             </Link>
           </li>
         )}

@@ -9,19 +9,19 @@ type Props = {
 
 export const SocialIconLink: FC<Props> = ({ socialLink }) => {
   return (
-    <Link href={socialLink.url}>
-      <a
-        target='_blank'
-        className='flex items-center rounded-full hover:shadow-md'
-      >
-        <Image
-          alt={socialLink.name}
-          src={socialLink.iconUrl}
-          width={32}
-          height={32}
-          className='rounded-full'
-        />
-      </a>
+    <Link
+      href={socialLink.url}
+      target='_blank'
+      className='flex items-center rounded-full hover:shadow-md'
+      passHref
+    >
+      <Image
+        alt={socialLink.name}
+        src={socialLink.iconUrl}
+        width={32}
+        height={32}
+        className='rounded-full'
+      />
     </Link>
   );
 };

@@ -11,16 +11,15 @@ export const EmbededTwitterTimeline: FC = () => {
   }, []);
 
   return (
-    <Link href='https://twitter.com/sainuio?ref_src=twsrc%5Etfw'>
-      <a
-        className='twitter-timeline'
-        data-height='400'
-        data-lang='ja'
-        data-theme='light'
-        data-chrome='noheader nofooter'
-      >
-        Tweets by sainuio
-      </a>
+    <Link
+      href='https://twitter.com/sainuio?ref_src=twsrc%5Etfw'
+      className='twitter-timeline'
+      data-height='400'
+      data-lang='ja'
+      data-theme='light'
+      data-chrome='noheader nofooter'
+    >
+      Tweets by sainuio
     </Link>
   );
 };
