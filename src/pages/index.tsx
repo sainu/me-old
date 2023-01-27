@@ -1,13 +1,12 @@
 import type { InferGetStaticPropsType, NextPage } from 'next';
 import React from 'react';
-import { ActiveWorkList } from '@/components/ActiveWorkList';
-import { ActiveWorkListItem } from '@/components/ActiveWorkListItem';
 import { CommonHeadMeta } from '@/components/CommonHeadMeta';
 import { DefaultLayout } from '@/components/DefaultLayout';
 import { MoreLink } from '@/components/MoreLink';
 import { Section } from '@/components/Section';
 import { SectionTitle } from '@/components/SectionTitle';
 import { WebsiteHeadMeta } from '@/components/WebsiteHeadMeta';
+import { ExperienceSummaryList } from '@/entities/experience';
 import { LifeEventList } from '@/entities/life-event';
 import { PostList } from '@/entities/post';
 import { SkillRankList } from '@/entities/skill';
@@ -69,11 +68,7 @@ const HomePage: NextPage<Props> = ({
             <h1>アクティブな活動</h1>
           </SectionTitle>
 
-          <ActiveWorkList>
-            {experiences.map((experience, i) => (
-              <ActiveWorkListItem key={i} experience={experience} />
-            ))}
-          </ActiveWorkList>
+          <ExperienceSummaryList experiences={experiences} />
 
           <MoreLink href='/about#experiences'>過去の活動を見る</MoreLink>
         </section>

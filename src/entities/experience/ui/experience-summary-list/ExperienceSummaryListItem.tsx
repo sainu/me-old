@@ -3,10 +3,10 @@ import { formatExperienceDate } from '@/shared/lib/date';
 import { Experience } from '@/type/api/experience';
 
 type Props = {
-  experience: Experience;
+  experience: Pick<Experience, 'startDate' | 'companyName'>;
 };
 
-export const ActiveWorkListItem: FC<Props> = ({ experience }) => {
+export const ExperienceSummaryListItem: FC<Props> = ({ experience }) => {
   return (
     <div className='flex flex-row gap-2'>
       <div className='w-1 bg-gray-800' />

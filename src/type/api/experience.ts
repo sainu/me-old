@@ -1,4 +1,5 @@
 export type Experience = {
+  id: string;
   companyName: string;
   employmentType: '正社員' | 'パートタイム' | 'フリーランス' | 'インターン';
   startDate: string;

@@ -90,6 +90,7 @@ export const fetchExperiences = async (params?: {
 
 const mapExperience = (data: any): Experience => {
   return {
+    id: data['id'],
     companyName: data['companyName'],
     employmentType: data['employmentTypes'][0],
     startDate: data['startDate'],
