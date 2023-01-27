@@ -3,7 +3,10 @@ import { formatExperienceDate } from '@/shared/lib/date';
 import { Experience } from '@/type/api/experience';
 
 type Props = {
-  experience: Experience;
+  experience: Pick<
+    Experience,
+    'companyName' | 'employmentType' | 'startDate' | 'endDate' | 'projects'
+  >;
 };
 
 export const ExperienceListItem: FC<Props> = ({ experience }) => {

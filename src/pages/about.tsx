@@ -1,10 +1,9 @@
 import type { InferGetStaticPropsType, NextPage } from 'next';
 import { DefaultLayout } from '@/components/DefaultLayout';
-import { ExperienceList } from '@/components/ExperienceList';
-import { ExperienceListItem } from '@/components/ExperienceListItem';
 import { PageTitle } from '@/components/PageTitle';
 import { Section } from '@/components/Section';
 import { SectionTitle } from '@/components/SectionTitle';
+import { ExperienceList } from '@/entities/experience';
 import { LifeEventList } from '@/entities/life-event';
 import { SkillBarList } from '@/entities/skill';
 import {
@@ -92,11 +91,7 @@ const AboutPage: NextPage<Props> = ({
             <h2 id='experiences'>Experiences</h2>
           </SectionTitle>
 
-          <ExperienceList>
-            {experiences.map((experience, i) => (
-              <ExperienceListItem key={i} experience={experience} />
-            ))}
-          </ExperienceList>
+          <ExperienceList experiences={experiences} />
         </section>
       </Section>
     </DefaultLayout>
