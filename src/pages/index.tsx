@@ -5,8 +5,6 @@ import { ActiveWorkListItem } from '@/components/ActiveWorkListItem';
 import { CommonHeadMeta } from '@/components/CommonHeadMeta';
 import { DefaultLayout } from '@/components/DefaultLayout';
 import { MoreLink } from '@/components/MoreLink';
-import { PostList } from '@/components/PostList';
-import { PostListItem } from '@/components/PostListItem';
 import { Section } from '@/components/Section';
 import { SectionTitle } from '@/components/SectionTitle';
 import { SkillRankList } from '@/components/SkillRankList';
@@ -14,6 +12,7 @@ import { SkillRankListItem } from '@/components/SkillRankListItem';
 import { Timeline } from '@/components/Timeline';
 import { TimelineItem } from '@/components/TimelineItem';
 import { WebsiteHeadMeta } from '@/components/WebsiteHeadMeta';
+import { PostList } from '@/entities/post';
 import {
   fetchExperiences,
   fetchPosts,
@@ -62,11 +61,7 @@ const HomePage: NextPage<Props> = ({
             <h1>最新の投稿</h1>
           </SectionTitle>
 
-          <PostList>
-            {posts.data.map((post) => (
-              <PostListItem key={post.slug} post={post} />
-            ))}
-          </PostList>
+          <PostList posts={posts.data} />
         </section>
       </Section>
 
