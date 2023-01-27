@@ -16,7 +16,6 @@ import { Profile } from '@/type/api/profile';
 import { QiitaPost } from '@/type/api/qiitaPost';
 import { Skill } from '@/type/api/skill';
 import { SocialLink } from '@/type/api/socialLink';
-import { TimelineData } from '@/type/api/timeline';
 
 type IndexParams = {
   page?: number;
@@ -179,35 +178,8 @@ export const fetchLifeEvents = async (): Promise<LifeEvent[]> => {
 
 const mapLifeEvent = (data: any): LifeEvent => {
   return {
+    id: data['id'],
     title: data['title'],
     date: data['date'],
   };
-};
-
-export const fetchTimeline = async (): Promise<TimelineData[]> => {
-  const [lifeEvents, experiences] = await Promise.all([
-    fetchLifeEvents(),
-    fetchExperiences({ orders: '-startDate' }),
-  ]);
-
-  return [
-    ...lifeEvents.map(
-      (e): TimelineData => ({ type: 'lifeEvent', data: e, date: e.date })
-    ),
-    ...experiences.map(
-      (e): TimelineData => ({
-        type: 'experience',
-        data: e,
-        date: e.startDate,
-        start: true,
-      })
-    ),
-    ...experiences.reduce<TimelineData[]>((acc, e) => {
-      if (!e.endDate) return [...acc];
-      return [
-        ...acc,
-        { type: 'experience', data: e, date: e.endDate, start: false },
-      ];
-    }, []),
-  ].sort((a, b) => b.date.localeCompare(a.date));
 };

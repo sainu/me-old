@@ -9,27 +9,26 @@ import { Section } from '@/components/Section';
 import { SectionTitle } from '@/components/SectionTitle';
 import { SkillRankList } from '@/components/SkillRankList';
 import { SkillRankListItem } from '@/components/SkillRankListItem';
-import { Timeline } from '@/components/Timeline';
-import { TimelineItem } from '@/components/TimelineItem';
 import { WebsiteHeadMeta } from '@/components/WebsiteHeadMeta';
+import { LifeEventList } from '@/entities/life-event';
 import { PostList } from '@/entities/post';
 import {
   fetchExperiences,
+  fetchLifeEvents,
   fetchPosts,
   fetchProfile,
   fetchSkills,
-  fetchTimeline,
 } from '@/services';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 export const getStaticProps = async () => {
-  const [profile, posts, skills, experiences, timeline] = await Promise.all([
+  const [profile, posts, skills, experiences, lifeEvents] = await Promise.all([
     fetchProfile(),
     fetchPosts({ perPage: 5 }),
     fetchSkills({ orders: '-score' }),
     fetchExperiences({ orders: '-startDate' }),
-    fetchTimeline(),
+    fetchLifeEvents(),
   ]);
 
   return {
@@ -38,7 +37,7 @@ export const getStaticProps = async () => {
       posts: posts,
       skills: skills.slice(0, 3),
       experiences: experiences.filter((e) => e.endDate === null),
-      timeline: timeline.slice(0, 3),
+      lifeEvents: lifeEvents.slice(0, 3),
     },
   };
 };
@@ -48,7 +47,7 @@ const HomePage: NextPage<Props> = ({
   posts,
   skills,
   experiences,
-  timeline,
+  lifeEvents,
 }) => {
   return (
     <DefaultLayout profile={profile}>
@@ -87,13 +86,11 @@ const HomePage: NextPage<Props> = ({
             <h1>最近のイベント</h1>
           </SectionTitle>
 
-          <Timeline>
-            {timeline.map((timelineData, i) => (
-              <TimelineItem key={i} timelineData={timelineData} />
-            ))}
-          </Timeline>
+          <LifeEventList lifeEvents={lifeEvents} />
 
-          <MoreLink href='/about#timeline'>過去のタイムラインを見る</MoreLink>
+          <MoreLink href='/about#life-events'>
+            過去のライフイベントを見る
+          </MoreLink>
         </section>
       </Section>
 
