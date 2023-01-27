@@ -93,13 +93,6 @@ const PostPage: NextPage<Props> = ({ post, prevPost, nextPost, profile }) => {
       </article>
 
       <DiscussionEmbed shortname='sainu-me' config={disqusConfig} />
-
-      <aside className='mt-12'>
-        <PostList gapClass='gap-1'>
-          {prevPost ? <PostListItem label='前の記事' post={prevPost} /> : <></>}
-          {nextPost ? <PostListItem label='次の記事' post={nextPost} /> : <></>}
-        </PostList>
-      </aside>
     </DefaultLayout>
   );
 };
