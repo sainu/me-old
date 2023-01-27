@@ -62,6 +62,7 @@ export const fetchSkills = async (params?: {
 
 const mapSkill = (data: any): Skill => {
   return {
+    id: data['id'],
     name: data['name'],
     score: data['score'],
   };

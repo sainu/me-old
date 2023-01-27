@@ -9,9 +9,8 @@ import { ProfileHeadMeta } from '@/components/ProfileHeadMeta';
 import { ProfileImage } from '@/components/ProfileImage';
 import { Section } from '@/components/Section';
 import { SectionTitle } from '@/components/SectionTitle';
-import { SkillBarList } from '@/components/SkillBarList';
-import { SkillBarListItem } from '@/components/SkillBarListItem';
 import { LifeEventList } from '@/entities/life-event';
+import { SkillBarList } from '@/entities/skill';
 import { SocialLinkIconList } from '@/entities/social-link/ui';
 import {
   fetchExperiences,
@@ -112,11 +111,7 @@ const AboutPage: NextPage<Props> = ({
             <h2 id='skills'>Skills</h2>
           </SectionTitle>
 
-          <SkillBarList>
-            {skills.map((skill) => (
-              <SkillBarListItem key={skill.name} skill={skill} />
-            ))}
-          </SkillBarList>
+          <SkillBarList skills={skills} />
         </section>
       </Section>
 
