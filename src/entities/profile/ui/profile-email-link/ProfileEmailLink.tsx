@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { FC } from 'react';
-import { Icon } from '@/components/Icon';
+import { Icon } from '@/shared/ui';
 import { Profile } from '@/type/api/profile';
 
 type Props = {

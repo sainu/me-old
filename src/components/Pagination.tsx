@@ -2,7 +2,7 @@ import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 import { FC } from 'react';
 import { getPagingRange, getTotalPages } from '@/shared/lib/pagination';
-import { Icon } from './Icon';
+import { Icon } from '@/shared/ui';
 
 type Props = {
   totalCount: number;

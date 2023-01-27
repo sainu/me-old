@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { IconProps } from '@/components/Icon';
+import { IconProps } from '../Icon';
 
 export const EnvelopeIcon: FC<IconProps> = ({ width = 24, height = 24 }) => {
   return (

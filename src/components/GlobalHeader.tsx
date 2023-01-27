@@ -1,8 +1,8 @@
 import { useRouter } from 'next/dist/client/router';
 import { FC, useState } from 'react';
+import { Icon } from '@/shared/ui';
 import { Profile } from '@/type/api/profile';
 import { GlobalNavigationLink } from './GlobalNavigationLink';
-import { Icon } from './Icon';
 import { ProfileImage } from './ProfileImage';
 
 type Props = {
