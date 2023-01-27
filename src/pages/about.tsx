@@ -1,6 +1,5 @@
 import type { InferGetStaticPropsType, NextPage } from 'next';
 import { DefaultLayout } from '@/components/DefaultLayout';
-import { PageTitle } from '@/components/PageTitle';
 import { ExperienceList } from '@/entities/experience';
 import { LifeEventList } from '@/entities/life-event';
 import { SkillBarList } from '@/entities/skill';
@@ -12,7 +11,7 @@ import {
   fetchLifeEvents,
 } from '@/services';
 import { CommonHeadMeta, ProfileHeadMeta } from '@/shared/meta';
-import { Section } from '@/shared/ui';
+import { Section, PageTitle } from '@/shared/ui';
 import { ProfileCard } from '@/widgets/profile-card';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
@@ -56,7 +55,7 @@ const AboutPage: NextPage<Props> = ({
         username={profile.nickname}
       />
 
-      <PageTitle>{title}</PageTitle>
+      <PageTitle title={title} />
 
       <Section>
         <ProfileCard profile={profile} socialLinks={socialLinks} />

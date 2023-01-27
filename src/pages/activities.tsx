@@ -3,12 +3,11 @@ import { FC } from 'react';
 import { DefaultLayout } from '@/components/DefaultLayout';
 import { EmbededTwitterTimeline } from '@/components/EmbededTwitterTimeline';
 import { MoreLink } from '@/components/MoreLink';
-import { PageTitle } from '@/components/PageTitle';
 import { QiitaPostList } from '@/components/QiitaPostList';
 import { QiitaPostListItem } from '@/components/QiitaPostListItem';
 import { fetchProfile, fetchQiitaPosts } from '@/services';
 import { ArticleHeadMeta, CommonHeadMeta } from '@/shared/meta';
-import { Section } from '@/shared/ui';
+import { Section, PageTitle } from '@/shared/ui';
 
 export const getStaticProps = async () => {
   const [profile, qiitaPosts] = await Promise.all([
@@ -34,9 +33,7 @@ const ActivitiesPage: FC<Props> = ({ profile, qiitaPosts }) => {
       <CommonHeadMeta title={pageTitle} path='/activities' />
       <ArticleHeadMeta />
 
-      <PageTitle>
-        <h1>{pageTitle}</h1>
-      </PageTitle>
+      <PageTitle title={<h1>{pageTitle}</h1>} />
 
       <Section title={<h2>Twitter</h2>}>
         <EmbededTwitterTimeline />

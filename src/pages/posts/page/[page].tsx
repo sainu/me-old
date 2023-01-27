@@ -1,10 +1,10 @@
 import { GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next';
 import React from 'react';
 import { DefaultLayout } from '@/components/DefaultLayout';
-import { PageTitle } from '@/components/PageTitle';
 import { PostList } from '@/entities/post';
 import { fetchPosts, fetchProfile } from '@/services';
 import { ArticleHeadMeta, CommonHeadMeta } from '@/shared/meta';
+import { PageTitle } from '@/shared/ui';
 import { Pagination } from '@/widgets/pagination';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
@@ -45,9 +45,7 @@ const PostsPage: NextPage<Props> = ({ profile, posts, currentPage }) => {
       <CommonHeadMeta title={pageTitle} path='/posts' />
       <ArticleHeadMeta />
 
-      <PageTitle>
-        <h1>{pageTitle}</h1>
-      </PageTitle>
+      <PageTitle title={<h1>{pageTitle}</h1>} />
 
       <PostList gapClass='gap-4' posts={posts.data} />
 
