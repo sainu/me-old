@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { Footer } from '@/components/Footer';
 import { Profile } from '@/type/api/profile';
+import { Footer } from '@/widgets/footer';
 import { GlobalHeader } from './GlobalHeader';
 
 type Props = {
