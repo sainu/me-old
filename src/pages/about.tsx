@@ -1,17 +1,14 @@
 import type { InferGetStaticPropsType, NextPage } from 'next';
 import { CommonHeadMeta } from '@/components/CommonHeadMeta';
 import { DefaultLayout } from '@/components/DefaultLayout';
-import { EmailWithLink } from '@/components/EmailWithLink';
 import { ExperienceList } from '@/components/ExperienceList';
 import { ExperienceListItem } from '@/components/ExperienceListItem';
 import { PageTitle } from '@/components/PageTitle';
 import { ProfileHeadMeta } from '@/components/ProfileHeadMeta';
-import { ProfileImage } from '@/components/ProfileImage';
 import { Section } from '@/components/Section';
 import { SectionTitle } from '@/components/SectionTitle';
 import { LifeEventList } from '@/entities/life-event';
 import { SkillBarList } from '@/entities/skill';
-import { SocialLinkIconList } from '@/entities/social-link/ui';
 import {
   fetchExperiences,
   fetchProfile,
@@ -19,6 +16,7 @@ import {
   fetchSocialLinks,
   fetchLifeEvents,
 } from '@/services';
+import { ProfileCard } from '@/widgets/profile-card';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -65,33 +63,7 @@ const AboutPage: NextPage<Props> = ({
 
       <Section>
         <section>
-          <div className='flex flex-col sm:flex-row mt-12 gap-6'>
-            <div className='shrink-0'>
-              <div className='flex sm:items-start'>
-                <ProfileImage
-                  url={profile.profileImageUrl}
-                  width={100}
-                  height={100}
-                />
-              </div>
-            </div>
-
-            <div className='flex flex-col gap-6'>
-              <div>
-                <div className='text-gray-400'>{profile.job}</div>
-                <div className='text-xl font-bold'>
-                  {profile.givenNameEn} {profile.familyNameEn}
-                </div>
-                <div>{profile.bio}</div>
-              </div>
-
-              <div className='flex gap-3 flex-col flex-wrap sm:flex-row-reverse sm:justify-end'>
-                <EmailWithLink email={profile.email} />
-
-                <SocialLinkIconList socialLinks={socialLinks} />
-              </div>
-            </div>
-          </div>
+          <ProfileCard profile={profile} socialLinks={socialLinks} />
         </section>
       </Section>
 
