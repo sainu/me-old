@@ -2,8 +2,6 @@ import type { InferGetStaticPropsType, NextPage } from 'next';
 import React from 'react';
 import { DefaultLayout } from '@/components/DefaultLayout';
 import { MoreLink } from '@/components/MoreLink';
-import { Section } from '@/components/Section';
-import { SectionTitle } from '@/components/SectionTitle';
 import { ExperienceSummaryList } from '@/entities/experience';
 import { LifeEventList } from '@/entities/life-event';
 import { PostList } from '@/entities/post';
@@ -16,6 +14,7 @@ import {
   fetchSkills,
 } from '@/services';
 import { CommonHeadMeta, WebsiteHeadMeta } from '@/shared/meta';
+import { Section } from '@/shared/ui';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -51,51 +50,26 @@ const HomePage: NextPage<Props> = ({
       <CommonHeadMeta path='/' />
       <WebsiteHeadMeta />
 
-      <Section>
-        <section>
-          <SectionTitle>
-            <h1>最新の投稿</h1>
-          </SectionTitle>
-
-          <PostList posts={posts.data} />
-        </section>
+      <Section title={<h1>最新の投稿</h1>}>
+        <PostList posts={posts.data} />
       </Section>
 
-      <Section>
-        <section>
-          <SectionTitle>
-            <h1>アクティブな活動</h1>
-          </SectionTitle>
-
-          <ExperienceSummaryList experiences={experiences} />
-
-          <MoreLink href='/about#experiences'>過去の活動を見る</MoreLink>
-        </section>
+      <Section title={<h1>アクティブな活動</h1>}>
+        <ExperienceSummaryList experiences={experiences} />
+        <MoreLink href='/about#experiences'>過去の活動を見る</MoreLink>
       </Section>
 
-      <Section>
-        <section>
-          <SectionTitle>
-            <h1>最近のイベント</h1>
-          </SectionTitle>
+      <Section title={<h1>最近のイベント</h1>}>
+        <LifeEventList lifeEvents={lifeEvents} />
 
-          <LifeEventList lifeEvents={lifeEvents} />
-
-          <MoreLink href='/about#life-events'>
-            過去のライフイベントを見る
-          </MoreLink>
-        </section>
+        <MoreLink href='/about#life-events'>
+          過去のライフイベントを見る
+        </MoreLink>
       </Section>
 
-      <Section>
-        <section>
-          <SectionTitle>
-            <h1>得意な技術トップ3</h1>
-          </SectionTitle>
-          <SkillRankList skills={skills} />
-
-          <MoreLink href='/about#skills'>全ての技術を見る</MoreLink>
-        </section>
+      <Section title={<h1>得意な技術トップ3</h1>}>
+        <SkillRankList skills={skills} />
+        <MoreLink href='/about#skills'>全ての技術を見る</MoreLink>
       </Section>
     </DefaultLayout>
   );

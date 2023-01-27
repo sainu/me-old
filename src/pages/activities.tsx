@@ -6,10 +6,9 @@ import { MoreLink } from '@/components/MoreLink';
 import { PageTitle } from '@/components/PageTitle';
 import { QiitaPostList } from '@/components/QiitaPostList';
 import { QiitaPostListItem } from '@/components/QiitaPostListItem';
-import { Section } from '@/components/Section';
-import { SectionTitle } from '@/components/SectionTitle';
 import { fetchProfile, fetchQiitaPosts } from '@/services';
 import { ArticleHeadMeta, CommonHeadMeta } from '@/shared/meta';
+import { Section } from '@/shared/ui';
 
 export const getStaticProps = async () => {
   const [profile, qiitaPosts] = await Promise.all([
@@ -39,32 +38,20 @@ const ActivitiesPage: FC<Props> = ({ profile, qiitaPosts }) => {
         <h1>{pageTitle}</h1>
       </PageTitle>
 
-      <Section>
-        <section>
-          <SectionTitle>
-            <h2>Twitter</h2>
-          </SectionTitle>
-
-          <EmbededTwitterTimeline />
-        </section>
+      <Section title={<h2>Twitter</h2>}>
+        <EmbededTwitterTimeline />
       </Section>
 
-      <Section>
-        <section>
-          <SectionTitle>
-            <h2>Qiita</h2>
-          </SectionTitle>
+      <Section title={<h2>Qiita</h2>}>
+        <QiitaPostList>
+          {qiitaPosts.map((qiitaPost) => (
+            <article key={qiitaPost.id}>
+              <QiitaPostListItem qiitaPost={qiitaPost} />
+            </article>
+          ))}
+        </QiitaPostList>
 
-          <QiitaPostList>
-            {qiitaPosts.map((qiitaPost) => (
-              <article key={qiitaPost.id}>
-                <QiitaPostListItem qiitaPost={qiitaPost} />
-              </article>
-            ))}
-          </QiitaPostList>
-
-          <MoreLink href='https://qiita.com/sainu'>他の投稿を見る</MoreLink>
-        </section>
+        <MoreLink href='https://qiita.com/sainu'>他の投稿を見る</MoreLink>
       </Section>
     </DefaultLayout>
   );

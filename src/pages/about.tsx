@@ -1,8 +1,6 @@
 import type { InferGetStaticPropsType, NextPage } from 'next';
 import { DefaultLayout } from '@/components/DefaultLayout';
 import { PageTitle } from '@/components/PageTitle';
-import { Section } from '@/components/Section';
-import { SectionTitle } from '@/components/SectionTitle';
 import { ExperienceList } from '@/entities/experience';
 import { LifeEventList } from '@/entities/life-event';
 import { SkillBarList } from '@/entities/skill';
@@ -14,6 +12,7 @@ import {
   fetchLifeEvents,
 } from '@/services';
 import { CommonHeadMeta, ProfileHeadMeta } from '@/shared/meta';
+import { Section } from '@/shared/ui';
 import { ProfileCard } from '@/widgets/profile-card';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
@@ -60,39 +59,19 @@ const AboutPage: NextPage<Props> = ({
       <PageTitle>{title}</PageTitle>
 
       <Section>
-        <section>
-          <ProfileCard profile={profile} socialLinks={socialLinks} />
-        </section>
+        <ProfileCard profile={profile} socialLinks={socialLinks} />
       </Section>
 
-      <Section>
-        <section>
-          <SectionTitle>
-            <h2 id='life-events'>Life Events</h2>
-          </SectionTitle>
-
-          <LifeEventList lifeEvents={lifeEvents} />
-        </section>
+      <Section title={<h2 id='life-events'>Life Events</h2>}>
+        <LifeEventList lifeEvents={lifeEvents} />
       </Section>
 
-      <Section>
-        <section>
-          <SectionTitle>
-            <h2 id='skills'>Skills</h2>
-          </SectionTitle>
-
-          <SkillBarList skills={skills} />
-        </section>
+      <Section title={<h2 id='skills'>Skills</h2>}>
+        <SkillBarList skills={skills} />
       </Section>
 
-      <Section>
-        <section>
-          <SectionTitle>
-            <h2 id='experiences'>Experiences</h2>
-          </SectionTitle>
-
-          <ExperienceList experiences={experiences} />
-        </section>
+      <Section title={<h2 id='experiences'>Experiences</h2>}>
+        <ExperienceList experiences={experiences} />
       </Section>
     </DefaultLayout>
   );
