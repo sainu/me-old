@@ -7,11 +7,10 @@ import { DefaultLayout } from '@/components/DefaultLayout';
 import { MoreLink } from '@/components/MoreLink';
 import { Section } from '@/components/Section';
 import { SectionTitle } from '@/components/SectionTitle';
-import { SkillRankList } from '@/components/SkillRankList';
-import { SkillRankListItem } from '@/components/SkillRankListItem';
 import { WebsiteHeadMeta } from '@/components/WebsiteHeadMeta';
 import { LifeEventList } from '@/entities/life-event';
 import { PostList } from '@/entities/post';
+import { SkillRankList } from '@/entities/skill';
 import {
   fetchExperiences,
   fetchLifeEvents,
@@ -35,7 +34,7 @@ export const getStaticProps = async () => {
     props: {
       profile,
       posts: posts,
-      skills: skills.slice(0, 3),
+      skills: skills,
       experiences: experiences.filter((e) => e.endDate === null),
       lifeEvents: lifeEvents.slice(0, 3),
     },
@@ -99,12 +98,7 @@ const HomePage: NextPage<Props> = ({
           <SectionTitle>
             <h1>得意な技術トップ3</h1>
           </SectionTitle>
-
-          <SkillRankList>
-            {skills.map((skill, i) => (
-              <SkillRankListItem key={i} rank={i + 1} skill={skill} />
-            ))}
-          </SkillRankList>
+          <SkillRankList skills={skills} />
 
           <MoreLink href='/about#skills'>全ての技術を見る</MoreLink>
         </section>
