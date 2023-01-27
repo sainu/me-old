@@ -1,10 +1,8 @@
 import type { InferGetStaticPropsType, NextPage } from 'next';
-import { CommonHeadMeta } from '@/components/CommonHeadMeta';
 import { DefaultLayout } from '@/components/DefaultLayout';
 import { ExperienceList } from '@/components/ExperienceList';
 import { ExperienceListItem } from '@/components/ExperienceListItem';
 import { PageTitle } from '@/components/PageTitle';
-import { ProfileHeadMeta } from '@/components/ProfileHeadMeta';
 import { Section } from '@/components/Section';
 import { SectionTitle } from '@/components/SectionTitle';
 import { LifeEventList } from '@/entities/life-event';
@@ -16,6 +14,7 @@ import {
   fetchSocialLinks,
   fetchLifeEvents,
 } from '@/services';
+import { CommonHeadMeta, ProfileHeadMeta } from '@/shared/meta';
 import { ProfileCard } from '@/widgets/profile-card';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;

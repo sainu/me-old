@@ -1,11 +1,9 @@
 import type { InferGetStaticPropsType, NextPage } from 'next';
 import React from 'react';
-import { CommonHeadMeta } from '@/components/CommonHeadMeta';
 import { DefaultLayout } from '@/components/DefaultLayout';
 import { MoreLink } from '@/components/MoreLink';
 import { Section } from '@/components/Section';
 import { SectionTitle } from '@/components/SectionTitle';
-import { WebsiteHeadMeta } from '@/components/WebsiteHeadMeta';
 import { ExperienceSummaryList } from '@/entities/experience';
 import { LifeEventList } from '@/entities/life-event';
 import { PostList } from '@/entities/post';
@@ -17,6 +15,7 @@ import {
   fetchProfile,
   fetchSkills,
 } from '@/services';
+import { CommonHeadMeta, WebsiteHeadMeta } from '@/shared/meta';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 

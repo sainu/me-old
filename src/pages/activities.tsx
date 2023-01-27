@@ -1,7 +1,5 @@
 import { InferGetStaticPropsType } from 'next';
 import { FC } from 'react';
-import { ArticleHeadMeta } from '@/components/ArticleHeadMeta';
-import { CommonHeadMeta } from '@/components/CommonHeadMeta';
 import { DefaultLayout } from '@/components/DefaultLayout';
 import { EmbededTwitterTimeline } from '@/components/EmbededTwitterTimeline';
 import { MoreLink } from '@/components/MoreLink';
@@ -11,6 +9,7 @@ import { QiitaPostListItem } from '@/components/QiitaPostListItem';
 import { Section } from '@/components/Section';
 import { SectionTitle } from '@/components/SectionTitle';
 import { fetchProfile, fetchQiitaPosts } from '@/services';
+import { ArticleHeadMeta, CommonHeadMeta } from '@/shared/meta';
 
 export const getStaticProps = async () => {
   const [profile, qiitaPosts] = await Promise.all([
