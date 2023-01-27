@@ -5,8 +5,7 @@ import { CommonHeadMeta } from '@/components/CommonHeadMeta';
 import { DefaultLayout } from '@/components/DefaultLayout';
 import { PageTitle } from '@/components/PageTitle';
 import { Pagination } from '@/components/Pagination';
-import { PostList } from '@/components/PostList';
-import { PostListItem } from '@/components/PostListItem';
+import { PostList } from '@/entities/post';
 import { fetchPosts, fetchProfile } from '@/services';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
@@ -51,11 +50,7 @@ const PostsPage: NextPage<Props> = ({ profile, posts, currentPage }) => {
         <h1>{pageTitle}</h1>
       </PageTitle>
 
-      <PostList gapClass='gap-4'>
-        {posts.data.map((post) => (
-          <PostListItem key={post.slug} post={post} />
-        ))}
-      </PostList>
+      <PostList gapClass='gap-4' posts={posts.data} />
 
       <Pagination
         totalCount={posts.meta.totalCount}
