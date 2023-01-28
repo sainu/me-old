@@ -1,0 +1,17 @@
+name: Main
+
+on: [pull_request]
+
+jobs:
+  jest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+      - name: Install node packages
+        uses: ./.github/actions/install-node-packages
+      - name: jest
+        run: npm test

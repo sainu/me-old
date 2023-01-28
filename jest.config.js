@@ -24,6 +24,8 @@ const customJestConfig = {
   testEnvironment: 'jest-environment-jsdom',
 
   setupFilesAfterEnv: ['<rootDir>/.jest/setupTests.js'],
+
+  reporters: ['default', 'github-actions'],
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
