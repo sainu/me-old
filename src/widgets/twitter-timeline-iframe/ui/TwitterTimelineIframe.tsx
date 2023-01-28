@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { FC, useEffect } from 'react';
 
-export const EmbededTwitterTimeline: FC = () => {
+export const TwitterTimelineIframe: FC = () => {
   useEffect(() => {
     const s = document.createElement('script');
     s.setAttribute('src', 'https://platform.twitter.com/widgets.js');
