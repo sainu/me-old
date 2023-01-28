@@ -1,7 +1,6 @@
 import type { InferGetStaticPropsType, NextPage } from 'next';
 import React from 'react';
 import { DefaultLayout } from '@/components/DefaultLayout';
-import { MoreLink } from '@/components/MoreLink';
 import { ExperienceSummaryList } from '@/entities/experience';
 import { LifeEventList } from '@/entities/life-event';
 import { PostList } from '@/entities/post';
@@ -14,7 +13,7 @@ import {
   fetchSkills,
 } from '@/services';
 import { CommonHeadMeta, WebsiteHeadMeta } from '@/shared/meta';
-import { Section } from '@/shared/ui';
+import { LinkText, Section } from '@/shared/ui';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -56,20 +55,20 @@ const HomePage: NextPage<Props> = ({
 
       <Section title={<h1>アクティブな活動</h1>}>
         <ExperienceSummaryList experiences={experiences} />
-        <MoreLink href='/about#experiences'>過去の活動を見る</MoreLink>
+        <LinkText href='/about#experiences'>過去の活動を見る</LinkText>
       </Section>
 
       <Section title={<h1>最近のイベント</h1>}>
         <LifeEventList lifeEvents={lifeEvents} />
 
-        <MoreLink href='/about#life-events'>
+        <LinkText href='/about#life-events'>
           過去のライフイベントを見る
-        </MoreLink>
+        </LinkText>
       </Section>
 
       <Section title={<h1>得意な技術トップ3</h1>}>
         <SkillRankList skills={skills} />
-        <MoreLink href='/about#skills'>全ての技術を見る</MoreLink>
+        <LinkText href='/about#skills'>全ての技術を見る</LinkText>
       </Section>
     </DefaultLayout>
   );

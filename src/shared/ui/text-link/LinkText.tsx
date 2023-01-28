@@ -5,7 +5,7 @@ type Props = {
   href: string;
 };
 
-export const MoreLink: FC<Props> = ({ href, children }) => {
+export const LinkText: FC<Props> = ({ href, children }) => {
   const target = href.startsWith('http') ? '_blank' : '_self';
 
   return (

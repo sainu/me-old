@@ -2,12 +2,11 @@ import { InferGetStaticPropsType } from 'next';
 import { FC } from 'react';
 import { DefaultLayout } from '@/components/DefaultLayout';
 import { EmbededTwitterTimeline } from '@/components/EmbededTwitterTimeline';
-import { MoreLink } from '@/components/MoreLink';
 import { QiitaPostList } from '@/components/QiitaPostList';
 import { QiitaPostListItem } from '@/components/QiitaPostListItem';
 import { fetchProfile, fetchQiitaPosts } from '@/services';
 import { ArticleHeadMeta, CommonHeadMeta } from '@/shared/meta';
-import { Section, PageTitle } from '@/shared/ui';
+import { Section, PageTitle, LinkText } from '@/shared/ui';
 
 export const getStaticProps = async () => {
   const [profile, qiitaPosts] = await Promise.all([
@@ -48,7 +47,7 @@ const ActivitiesPage: FC<Props> = ({ profile, qiitaPosts }) => {
           ))}
         </QiitaPostList>
 
-        <MoreLink href='https://qiita.com/sainu'>他の投稿を見る</MoreLink>
+        <LinkText href='https://qiita.com/sainu'>他の投稿を見る</LinkText>
       </Section>
     </DefaultLayout>
   );
