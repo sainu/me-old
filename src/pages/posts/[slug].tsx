@@ -6,8 +6,6 @@ import {
   NextPage,
 } from 'next';
 import { ComponentProps } from 'react';
-import { PostList } from '@/components/PostList';
-import { PostListItem } from '@/components/PostListItem';
 import { fetchPost, fetchPosts, fetchProfile } from '@/services';
 import { formatISO, formatPostPublishedTime } from '@/shared/lib/date';
 import { ArticleHeadMeta, CommonHeadMeta } from '@/shared/meta';
