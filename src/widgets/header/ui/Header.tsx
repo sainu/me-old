@@ -3,7 +3,7 @@ import { FC, useState } from 'react';
 import { ProfileImage } from '@/entities/profile';
 import { Icon } from '@/shared/ui';
 import { Profile } from '@/type/api/profile';
-import { GlobalNavigationLink } from './GlobalNavigationLink';
+import { HeaderNavigationLink } from './HeaderNavigationLink';
 
 type Props = {
   profile: Profile;
@@ -20,7 +20,7 @@ const filledIconProps = Object.assign({}, iconProps, { fill: true });
 
 const navIcons = (pathname: string) => {
   return [
-    <GlobalNavigationLink
+    <HeaderNavigationLink
       key='1'
       href='/'
       active={pathname === '/'}
@@ -28,8 +28,8 @@ const navIcons = (pathname: string) => {
       activeIcon={<Icon name='home' {...filledIconProps} />}
     >
       Home
-    </GlobalNavigationLink>,
-    <GlobalNavigationLink
+    </HeaderNavigationLink>,
+    <HeaderNavigationLink
       key='4'
       href='/about'
       active={pathname === '/about'}
@@ -37,8 +37,8 @@ const navIcons = (pathname: string) => {
       activeIcon={<Icon name='person' {...filledIconProps} />}
     >
       About
-    </GlobalNavigationLink>,
-    <GlobalNavigationLink
+    </HeaderNavigationLink>,
+    <HeaderNavigationLink
       key='2'
       href='/posts/page/1'
       active={pathname.startsWith('/posts/page/')}
@@ -46,8 +46,8 @@ const navIcons = (pathname: string) => {
       activeIcon={<Icon name='book' {...filledIconProps} />}
     >
       Posts
-    </GlobalNavigationLink>,
-    <GlobalNavigationLink
+    </HeaderNavigationLink>,
+    <HeaderNavigationLink
       key='3'
       href='/activities'
       active={pathname === '/activities'}
@@ -55,7 +55,7 @@ const navIcons = (pathname: string) => {
       activeIcon={<Icon name='lightning-charge' {...filledIconProps} />}
     >
       Activities
-    </GlobalNavigationLink>,
+    </HeaderNavigationLink>,
   ];
 };
 
@@ -76,7 +76,7 @@ const Thumbnail: FC<{
   );
 };
 
-export const GlobalHeader: FC<Props> = ({ profile }) => {
+export const Header: FC<Props> = ({ profile }) => {
   const router = useRouter();
   const [hideMenu, setHideMenu] = useState(true);
 

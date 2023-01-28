@@ -8,7 +8,7 @@ type Props = {
   active: boolean;
 };
 
-export const GlobalNavigationLink: FC<Props> = ({
+export const HeaderNavigationLink: FC<Props> = ({
   href,
   active,
   icon,
