@@ -6,12 +6,12 @@ import {
   NextPage,
 } from 'next';
 import { ComponentProps } from 'react';
-import { DefaultLayout } from '@/components/DefaultLayout';
 import { PostList } from '@/components/PostList';
 import { PostListItem } from '@/components/PostListItem';
 import { fetchPost, fetchPosts, fetchProfile } from '@/services';
 import { formatISO, formatPostPublishedTime } from '@/shared/lib/date';
 import { ArticleHeadMeta, CommonHeadMeta } from '@/shared/meta';
+import { DefaultLayout } from '@/shared/ui';
 import { Post } from '@/type/api/post';
 import { Profile } from '@/type/api/profile';
 import 'zenn-content-css';

@@ -1,6 +1,5 @@
 import type { InferGetStaticPropsType, NextPage } from 'next';
 import React from 'react';
-import { DefaultLayout } from '@/components/DefaultLayout';
 import { ExperienceSummaryList } from '@/entities/experience';
 import { LifeEventList } from '@/entities/life-event';
 import { PostList } from '@/entities/post';
@@ -13,7 +12,7 @@ import {
   fetchSkills,
 } from '@/services';
 import { CommonHeadMeta, WebsiteHeadMeta } from '@/shared/meta';
-import { LinkText, Section } from '@/shared/ui';
+import { LinkText, Section, DefaultLayout } from '@/shared/ui';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 

@@ -1,10 +1,9 @@
 import { GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next';
 import React from 'react';
-import { DefaultLayout } from '@/components/DefaultLayout';
 import { PostList } from '@/entities/post';
 import { fetchPosts, fetchProfile } from '@/services';
 import { ArticleHeadMeta, CommonHeadMeta } from '@/shared/meta';
-import { PageTitle } from '@/shared/ui';
+import { PageTitle, DefaultLayout } from '@/shared/ui';
 import { Pagination } from '@/widgets/pagination';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;

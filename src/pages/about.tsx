@@ -1,5 +1,4 @@
 import type { InferGetStaticPropsType, NextPage } from 'next';
-import { DefaultLayout } from '@/components/DefaultLayout';
 import { ExperienceList } from '@/entities/experience';
 import { LifeEventList } from '@/entities/life-event';
 import { SkillBarList } from '@/entities/skill';
@@ -11,7 +10,7 @@ import {
   fetchLifeEvents,
 } from '@/services';
 import { CommonHeadMeta, ProfileHeadMeta } from '@/shared/meta';
-import { Section, PageTitle } from '@/shared/ui';
+import { Section, PageTitle, DefaultLayout } from '@/shared/ui';
 import { ProfileCard } from '@/widgets/profile-card';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
