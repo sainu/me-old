@@ -13,6 +13,7 @@ export const LinkText: FC<Props> = ({ href, children }) => {
       href={href}
       className='text-sm underline mt-4 inline-block'
       target={target}
+      rel={target === '_blank' ? 'noopener noreferrer' : undefined}
     >
       {children}
     </Link>
