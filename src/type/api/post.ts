@@ -4,8 +4,3 @@ export type Post = {
   publishedAt: string;
   content: string;
 };
-
-export interface PostMdMeta {
-  title: string;
-  published_at: string;
-}

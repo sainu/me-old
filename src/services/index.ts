@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { parseStringPromise } from 'xml2js';
 import markdownToHtml from 'zenn-markdown-html';
 import { profileApiClient } from '@/shared/lib/httpClient';
 import {
@@ -11,7 +10,7 @@ import {
 } from '@/shared/lib/pagination';
 import { Experience, Project, Technology } from '@/type/api/experience';
 import { LifeEvent } from '@/type/api/lifeEvent';
-import { Post, PostMdMeta } from '@/type/api/post';
+import { Post } from '@/type/api/post';
 import { Profile } from '@/type/api/profile';
 import { Skill } from '@/type/api/skill';
 import { SocialLink } from '@/type/api/socialLink';
