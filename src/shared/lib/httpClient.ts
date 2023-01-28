@@ -8,11 +8,3 @@ export const profileApiClient = axios.create({
     'X-MICROCMS-API-KEY': process.env.PROFILE_API_API_KEY || '',
   },
 });
-
-export const qiitaClient = axios.create({
-  baseURL: 'https://qiita.com',
-  timeout: 3 * 60 * 1000,
-  headers: {
-    'User-Agent': 'sainu.me',
-  },
-});

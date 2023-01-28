@@ -3,7 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { parseStringPromise } from 'xml2js';
 import markdownToHtml from 'zenn-markdown-html';
-import { profileApiClient, qiitaClient } from '@/shared/lib/httpClient';
+import { profileApiClient } from '@/shared/lib/httpClient';
 import {
   DEFAULT_PER_PAGE,
   getTotalPages,
@@ -13,7 +13,6 @@ import { Experience, Project, Technology } from '@/type/api/experience';
 import { LifeEvent } from '@/type/api/lifeEvent';
 import { Post, PostMdMeta } from '@/type/api/post';
 import { Profile } from '@/type/api/profile';
-import { QiitaPost } from '@/type/api/qiitaPost';
 import { Skill } from '@/type/api/skill';
 import { SocialLink } from '@/type/api/socialLink';
 
@@ -154,22 +153,6 @@ const mapPost = (filepath: string): Post => {
     title: data.title,
     publishedAt: data.published_at,
     content: html,
-  };
-};
-
-export const fetchQiitaPosts = async (): Promise<QiitaPost[]> => {
-  const res = await qiitaClient.get('/sainu/feed');
-  const json = await parseStringPromise(res.data);
-  return json.feed.entry.map(mapQiitaPost);
-};
-
-const mapQiitaPost = (data: any): QiitaPost => {
-  return {
-    id: data['id'][0],
-    published: data['published'][0],
-    updated: data['updated'][0],
-    url: data['url'][0],
-    title: data['title'][0],
   };
 };
 

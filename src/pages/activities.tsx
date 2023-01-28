@@ -2,22 +2,16 @@ import { InferGetStaticPropsType } from 'next';
 import { FC } from 'react';
 import { DefaultLayout } from '@/components/DefaultLayout';
 import { EmbededTwitterTimeline } from '@/components/EmbededTwitterTimeline';
-import { QiitaPostList } from '@/components/QiitaPostList';
-import { QiitaPostListItem } from '@/components/QiitaPostListItem';
-import { fetchProfile, fetchQiitaPosts } from '@/services';
+import { fetchProfile } from '@/services';
 import { ArticleHeadMeta, CommonHeadMeta } from '@/shared/meta';
 import { Section, PageTitle, LinkText } from '@/shared/ui';
 
 export const getStaticProps = async () => {
-  const [profile, qiitaPosts] = await Promise.all([
-    fetchProfile(),
-    fetchQiitaPosts(),
-  ]);
+  const [profile] = await Promise.all([fetchProfile()]);
 
   return {
     props: {
       profile,
-      qiitaPosts: qiitaPosts.slice(0, 5),
     },
   };
 };
@@ -26,7 +20,7 @@ type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 const pageTitle = 'アクティビティ';
 
-const ActivitiesPage: FC<Props> = ({ profile, qiitaPosts }) => {
+const ActivitiesPage: FC<Props> = ({ profile }) => {
   return (
     <DefaultLayout profile={profile}>
       <CommonHeadMeta title={pageTitle} path='/activities' />
@@ -36,18 +30,6 @@ const ActivitiesPage: FC<Props> = ({ profile, qiitaPosts }) => {
 
       <Section title={<h2>Twitter</h2>}>
         <EmbededTwitterTimeline />
-      </Section>
-
-      <Section title={<h2>Qiita</h2>}>
-        <QiitaPostList>
-          {qiitaPosts.map((qiitaPost) => (
-            <article key={qiitaPost.id}>
-              <QiitaPostListItem qiitaPost={qiitaPost} />
-            </article>
-          ))}
-        </QiitaPostList>
-
-        <LinkText href='https://qiita.com/sainu'>他の投稿を見る</LinkText>
       </Section>
     </DefaultLayout>
   );
