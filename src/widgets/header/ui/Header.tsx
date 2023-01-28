@@ -47,15 +47,6 @@ const navIcons = (pathname: string) => {
     >
       Posts
     </HeaderNavigationLink>,
-    <HeaderNavigationLink
-      key='3'
-      href='/activities'
-      active={pathname === '/activities'}
-      icon={<Icon name='lightning-charge' {...iconProps} />}
-      activeIcon={<Icon name='lightning-charge' {...filledIconProps} />}
-    >
-      Activities
-    </HeaderNavigationLink>,
   ];
 };
 
