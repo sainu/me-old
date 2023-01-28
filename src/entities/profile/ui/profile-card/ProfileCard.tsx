@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import { FC } from 'react';
+import { ProfileImage } from '@/entities/profile';
 import { Profile } from '@/type/api/profile';
 
 type Props = {
@@ -16,13 +16,7 @@ export const ProfileCard: FC<Props> = ({ profile, extra }) => {
       <div className='flex flex-col sm:flex-row mt-12 gap-6'>
         <div className='shrink-0'>
           <div className='flex sm:items-start'>
-            <Image
-              className='rounded-full'
-              src={profile.profileImageUrl}
-              alt='プロフィール画像'
-              width={100}
-              height={100}
-            />
+            <ProfileImage src={profile.profileImageUrl} size='large' />
           </div>
         </div>
 

@@ -1,9 +1,9 @@
 import { useRouter } from 'next/dist/client/router';
 import { FC, useState } from 'react';
+import { ProfileImage } from '@/entities/profile';
 import { Icon } from '@/shared/ui';
 import { Profile } from '@/type/api/profile';
 import { GlobalNavigationLink } from './GlobalNavigationLink';
-import { ProfileImage } from './ProfileImage';
 
 type Props = {
   profile: Profile;
@@ -70,7 +70,7 @@ const Thumbnail: FC<{
         style={{ fontSize: '0px' }}
         onClick={() => onClick && onClick()}
       >
-        <ProfileImage url={url} width={96} height={96} />
+        <ProfileImage src={url} size='medium' />
       </div>
     </div>
   );
