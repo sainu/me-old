@@ -44,7 +44,7 @@
     "autoprefixer": "^10.4.7",
     "babel-loader": "^9.1.2",
     "eslint": "8.32.0",
-    "eslint-config-next": "^13.1.1",
+    "eslint-config-next": "^13.3.2",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-storybook": "^0.6.8",
     "gray-matter": "^4.0.3",
